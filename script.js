@@ -6,7 +6,8 @@ function handleSubmit (e) {
 		  const { target: form } = e;
 		  const cardRatingElement = form.closest('article');
 		  const cardThanksElement = cardRatingElement.nextElementSibling;
-		  if (!form['start-selected'].value) return;
+		  if (!document.querySelector('em').innerText) return;
+		  console.log(document.querySelector('em').innerText)
 		  cardRatingElement.classList.add('hidden');
 		  cardThanksElement.classList.remove('hidden');
 
@@ -19,7 +20,7 @@ function handleSubmit (e) {
 		  if (e.target.nodeName === 'INPUT') {
 		    const inputButton = e.target;
 		    document.querySelector('[name="start-selected"]').value = inputButton.value;
-		    document.querySelector('em').innerHTML = inputButton.value
+		    document.querySelector('em').innerText = inputButton.value
 		   
 		    if(document.querySelector('[name="start-selected"]').value == inputButton.value) inputButton.classList.add('active');
 		  }
