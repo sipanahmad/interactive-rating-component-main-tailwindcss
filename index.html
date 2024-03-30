@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+    @layer utilities {
+      .bg-url {
+  		background: rgba(125,125,125,.1) url(./images/icon-star.svg) no-repeat center;
+      }
+      .bg-url-thanks {
+  		background: transparent url('./images/illustration-thank-you.svg') no-repeat center;
+      }
+      .active{
+      		background-color:hsl(216, 12%, 54%);
+      }
+        
+    }
+  </style>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors:
+           {
+           'primary-orange': 'hsl(25, 97%, 53%)',
+            'primary-transparent':'rgba(125,125,125,.1)',
+            'neutral-light-grey':'hsl(217, 12%, 63%)',
+	    'neutral-medium-grey': 'hsl(216, 12%, 54%)',
+	    'neutral-dark-blue': 'hsl(213, 19%, 18%)',
+	    'neutral-very-dark-blue': 'hsl(216, 12%, 8%)',
+	    'neutral-white': 'hsl(0, 0%, 100%)',
+          },
+          fontFamily:{
+          	'overpass':['Overpass', 'sans-serif'],
+          },
+          
+      }
+    }
+    }
+  </script>
+</head>
+<body class="text-[15px] font-overpass grid place-items-center min-h-screen bg-neutral-very-dark-blue">
+
+ <article class=" p-4 w-[375px] sm:w-[360px] bg-neutral-dark-blue text-neutral-white rounded-[0.8rem] before:content-[''] before:inline-block before:w-[2.5rem] before:h-[2.5rem] before:rounded-full before:bg-url">
+    <form id="rating-form">
+      <h1 class="my-4 text-2xl font-bold" id="title">How did we do?</h1>
+      <p class="text-neutral-light-grey my-4">
+        Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!
+      </p>
+      
+      <div class="flex justify-between items-center my-4 btn-group" role="group">
+        <input type="button" value="1" name="star-1" class="w-[2.5rem] h-[2.5rem] bg-primary-transparent text-neutral-white rounded-full hover:bg-primary-orange active:bg-neutral-medium-grey cursor-pointer duration-500 ease-in">
+        <input type="button" value="2" name="star-2" class="w-[2.5rem] h-[2.5rem] bg-primary-transparent text-neutral-white rounded-full hover:bg-primary-orange active:bg-neutral-medium-grey cursor-pointer duration-500 ease-in">
+        <input type="button" value="3" name="star-3" class="w-[2.5rem] h-[2.5rem] bg-primary-transparent text-neutral-white rounded-full hover:bg-primary-orange active:bg-neutral-medium-grey cursor-pointer duration-500 ease-in">
+        <input type="button" value="4" name="star-4" class="w-[2.5rem] h-[2.5rem] bg-primary-transparent text-neutral-white rounded-full hover:bg-primary-orange active:bg-neutral-medium-grey cursor-pointer duration-500 ease-in">
+        <input type="button" value="5" name="star-5" class="w-[2.5rem] h-[2.5rem] bg-primary-transparent text-neutral-white rounded-full hover:bg-primary-orange active:bg-neutral-medium-grey cursor-pointer duration-500 ease-in">
+      </div>
+      <input type="hidden" name="start-selected" class="active" value="">
+      
+      <button class="btn w-full h-[2.5rem] bg-primary-orange text-neutral-white font-bold uppercase rounded-[2.5rem] hover:bg-neutral-white hover:text-primary-orange duration-500 ease-in my-4">Submit</button>
+    </form>
+  </article>
+
+  <article class="p-4 w-[375px]  sm:w-[360px] bg-neutral-dark-blue text-neutral-white rounded-[0.8rem] text-center before:content-['Rating State'] before:inline-block before:w-full before:min-w-[162px] before:min-h-[108px] before:-indent-96 before:bg-url-thanks before:my-4  hidden">
+    <strong class="inline-block py-2 px-4 bg-primary-transparent text-primary-orange font-normal rounded-[2.5rem]">You selected <em class="non-italic">1</em> out of 5</strong>
+    <h1 class="my-4 text-2xl font-bold" id="title">Thank you!</h1>
+    <p class="text-neutral-light-grey my-4">
+      We appreciate you taking the time to give a rating. If you ever need more support,
+      don’t hesitate to get in touch!
+    </p>
+  </article>
+  <script src="script.js"></script>
+</body>
+</html>
